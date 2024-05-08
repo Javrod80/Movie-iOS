@@ -16,12 +16,11 @@ struct Movies: Decodable {
     let year: String
     let imdbID: String
     let poster: String
-  /*let director: String
-    let sipnosis: String
-    let duracion: String
-    let genero : String
-    let pais : String 
-    let plot: String */
+    let director: String?
+    let sipnosis: String?
+    let duracion: String?
+    let genero : String?
+    let pais : String?
     
     
     
@@ -30,11 +29,11 @@ struct Movies: Decodable {
         case year = "Year"
         case poster = "Poster"
         case imdbID
-      /*case director = "Director"
+        case director = "Director"
         case sipnosis = "Plot"
         case duracion = "Runtime"
         case genero = " Genre"
-        case pais = "Country " */
+        case pais = "Country"
         
         
     }

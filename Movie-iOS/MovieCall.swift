@@ -32,5 +32,29 @@ class MovieProvider {
         return []
         
     }
+    
+    static func getMovieDetailFromApi(query: String) async throws -> Movies? {
+        guard let url = URL(string: "http://www.omdbapi.com/?apikey=b9856625&i=\(query)") else {
+            throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
+        }
+        
+        print (url.absoluteString)
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            print (data.description)
+            let decoded = try JSONDecoder().decode(Movies.self, from: data)
+            return decoded
+            
+            
+            
+            
+        } catch {
+            
+            print("Error al obtener datos de la API: \(error)")
+        }
+        return nil
+        
+    }
 }
 

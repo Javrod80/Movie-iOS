@@ -68,7 +68,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-    func fetchMovies() async -> [Movies] {
+    func fetchMovies() async {
         
         
         do {
@@ -83,8 +83,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print("Error al obtener movies: \(error)")
         }
         print ("fin")
-        
-        return movies
     
         
     

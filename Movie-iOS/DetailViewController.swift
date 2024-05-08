@@ -44,8 +44,34 @@ class DetailViewController: UIViewController {
         countryMovie.text = movies!.pais*/
         
         
+        Task.init {
+            await fetchMovies()
+        }
+        
+    }
+    
+    func fetchMovies() async {
         
         
+        do {
+            movies = try await MovieProvider.getMovieDetailFromApi(query: movies!.imdbID)
+            print(movies)
+            
+            
+            DispatchQueue.main.async {
+                self.plotMovie.text = self.movies!.sipnosis
+                self.runtimeMovie.text = self.movies!.duracion
+                self.directorMovie.text = self.movies!.director
+                self.genreMovie.text = self.movies!.genero
+                self.countryMovie.text = self.movies!.pais
+            }
+        } catch {
+            print("Error al obtener movies: \(error)")
+        }
+        print ("fin")
+    
+        
+    
     }
     
 }
