@@ -72,7 +72,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         do {
-            movies = try await MovieProvider.getMovieFromApi(query: "mario")
+            movies = try await MovieProvider.getMovieFromApi(query: "matrix")
             print(movies.count)
             
             

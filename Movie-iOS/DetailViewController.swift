@@ -31,18 +31,46 @@ class DetailViewController: UIViewController {
     @IBOutlet var countryMovie: UILabel!
     
     
+    
+    @IBOutlet var primerView: UIView!
+    
+    
+    @IBOutlet var secondView: UIView!
+    
+    @IBOutlet var thirdView: UIView!
+    
     override func viewDidLoad()  {
         super.viewDidLoad()
+        
+        
+        primerView.layer.cornerRadius = 16;
+        primerView.layer.masksToBounds = false;
+        primerView.layer.shadowColor = UIColor.black.cgColor
+        primerView.layer.shadowOffset = CGSize(width: 8, height: 8)
+        primerView.layer.shadowOpacity = 0.5
+        
+        secondView.layer.cornerRadius = 16;
+        secondView.layer.masksToBounds = false;
+        secondView.layer.shadowColor = UIColor.black.cgColor
+        secondView.layer.shadowOffset = CGSize(width: 8, height: 8)
+        secondView.layer.shadowOpacity = 0.5
+        
+        thirdView.layer.cornerRadius = 16;
+        thirdView.layer.masksToBounds = false;
+        thirdView.layer.shadowColor = UIColor.black.cgColor
+        thirdView.layer.shadowOffset = CGSize(width: 8, height: 8)
+        thirdView.layer.shadowOpacity = 0.5
+        
+        movieImage.layer.cornerRadius = 8;
+        movieImage.layer.masksToBounds = true;
+        movieImage.layer.borderWidth = 5;
+        movieImage.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 0.25);
+        
         
         movieImage.loadImage(fromURL: movies!.poster)
         nameMovie.text = movies!.title
         yearMovie.text = movies!.year
-       /* plotMovie.text = movies!.sipnosis
-        runtimeMovie.text = movies!.duracion
-        directorMovie.text = movies!.director
-        genreMovie.text = movies!.genero
-        countryMovie.text = movies!.pais*/
-        
+      
         
         Task.init {
             await fetchMovies()
